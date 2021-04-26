@@ -1,0 +1,20 @@
+{
+  "name": "level",
+  "version": "0.0.1",
+  "description": "Level Bot",
+  "main": "theark.js",
+  "scripts": {
+    "start": "node theark.js"
+  },
+  "dependencies": {
+    "canvas": "^2.6.1",
+    "colorthief": "^2.3.2",
+    "discord.js": "^12.5.0",
+    "mongoose": "^5.11.9",
+    "tinycolor2": "^1.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "prettier": "^2.2.1"
+  }
+}
