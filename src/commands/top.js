@@ -29,7 +29,7 @@ module.exports = {
       embed.setDescription(list);
       message.channel.send(embed);
     } else {
-      embed.setDescription(`${list} \n... \n**${index}. ${message.author} ${data.level} Level - ${data.totalXP} XP**`);
+      embed.setDescription(`${list} \n... \n**${rank}. ${message.author} ${data.level} Level - ${data.totalXP} XP**`);
       message.channel.send(embed);
     }
   }

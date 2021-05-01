@@ -9,9 +9,14 @@
   "dependencies": {
     "canvas": "^2.6.1",
     "colorthief": "^2.3.2",
-    "discord.js": "^12.5.0",
+    "discord.js": "^12.5.3",
+    "fs": "^0.0.1-security",
     "mongoose": "^5.11.9",
-    "tinycolor2": "^1.4.2"
+    "node-witai-speech": "^1.0.2",
+    "path": "^0.12.7",
+    "stream": "^0.0.2",
+    "tinycolor2": "^1.4.2",
+    "util": "^0.12.3"
   },
   "devDependencies": {
     "eslint": "^7.17.0",
