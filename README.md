@@ -14,9 +14,9 @@
 Tada 🎉. Artık level botun hazır. Dilediğin gibi kullanabilirsin.
 
 # Önemli Bilgiler
-`config.json` dosyasında `xpToAdd` kısmına `"1-20"` yazarsanız (örnek), her mesajda 1 ile 20 arasında rastgele bir sayıda xp ekleyecektir!
-`config.json` dosyasında `nextLevelXP` parametresi, kaç xp'de bir level atlanacağını ayarlar. (bir sonraki levelin xp'si; `kişinin leveli * nextLevelXP` olarak hesaplanır.)
-`config.json` dosyasında `removeOldRoles` parametresi ise; eğer `true` yazarsanız her level atladığında bir önceki levelin rollerini alır. Eğer `false` olarak kalırsa almaz!
+* `config.json` dosyasında `xpToAdd` kısmına `"1-20"` yazarsanız (örnek), her mesajda 1 ile 20 arasında rastgele bir sayıda xp ekleyecektir!
+* `config.json` dosyasında `nextLevelXP` parametresi, kaç xp'de bir level atlanacağını ayarlar. (bir sonraki levelin xp'si; `kişinin leveli * nextLevelXP` olarak hesaplanır.)
+* `config.json` dosyasında `removeOldRoles` parametresi ise; eğer `true` yazarsanız her level atladığında bir önceki levelin rollerini alır. Eğer `false` olarak kalırsa almaz!
 
 # İletişim
 * [Discord Sunucum](https://discord.gg/UEPcFtytcc)
