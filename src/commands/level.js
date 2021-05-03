@@ -1,4 +1,3 @@
-const { MessageAttachment } = require("discord.js");
 const db = require("../schemas/level");
 const Canvas = require("canvas");
 const { registerFont } = require("canvas");
@@ -27,7 +26,7 @@ module.exports = {
     const userData = await db.findOne({ guildID: message.guild.id, userID: member.user.id });
     const level = userData ? userData.level : 0;
     const xp = userData ? userData.totalXP : 0;
-    const nextLevelXP = (!level ? 1 : level == 1 ? 2 : level) * conf.nextLevelXP;
+    const nextLevelXP = (!level ? 1 : level === 1 ? 2 : level) * conf.nextLevelXP;
     const data = await db.find({ guildID: message.guild.id }).sort({ totalXP: -1 });
     const rank = data.map((x) => x.userID).indexOf(member.user.id) + 1;
 
@@ -102,7 +101,7 @@ module.exports = {
     ctx.font = "19px Arial";
     ctx.fillStyle = "#686971";
     ctx.textAlign = "center";
-    ctx.fillText(`${xp}/${nextLevelXP}`, 920, 230);
+    ctx.fillText(`${userData ? userData.currentXP : 0}/${nextLevelXP}`, 920, 230);
 
     // progressbar
     ctx.beginPath();

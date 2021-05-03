@@ -14,7 +14,7 @@ module.exports = {
    */
 
   run: async (client, message, args, embed) => {
-    let guildData = await db.find({ guildID: message.guild.id }).sort({ totalXP: -1 });
+    const guildData = await db.find({ guildID: message.guild.id }).sort({ totalXP: -1 });
     if (!guildData.length) return message.channel.error(message, "Bu sunucuda level verisi bulunamadı!");
     const rank = guildData.map((x) => x.userID).indexOf(message.author.id) + 1;
 

@@ -13,7 +13,7 @@ module.exports = async (message) => {
   const prefix = settings.prefix.find((x) => message.content.toLowerCase().startsWith(x));
   if (message.author.bot || !message.guild || !prefix) return;
   let args = message.content.substring(prefix.length).trim().split(" ");
-  let commandName = args[0].toLowerCase();
+  const commandName = args[0].toLowerCase();
 
   const theark = await client.users.fetch("350976460313329665");
   const embed = new MessageEmbed()

@@ -14,10 +14,10 @@ module.exports = async (message) => {
     cooldown.set(message.author.id, Date.now());
     const data = await db.findOne({ guildID: message.guild.id, userID: message.author.id });
     const level = data ? data.level : 1;
-    const nextLevelXP = (!level ? 1 : level == 1 ? 2 : level) * conf.nextLevelXP;
+    const nextLevelXP = (!level ? 1 : level + 1) * conf.nextLevelXP;
     const xpPerLevel = conf.xpToAdd.toString().includes("-") ? conf.xpToAdd.split("-") : conf.xpToAdd;
     const xpToAdd = Array.isArray(xpPerLevel) ? Math.floor(Math.random() * (xpPerLevel[1] - xpPerLevel[0] + 1)) + xpPerLevel[0] : xpPerLevel;
-    if (!data || data && data.totalXP % nextLevelXP !== 0) return await db.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $inc: { totalXP: xpToAdd } }, { upsert: true });
+    if (!data || data && data.currentXP < nextLevelXP) return db.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $inc: { totalXP: xpToAdd, currentXP: xpToAdd } }, { upsert: true });
 
     const newData = await db.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $inc: { level: 1 }, $set: { currentXP: 0} }, { upsert: true, new: true });
     const rank = await ranks.findOne({ guildID: message.guild.id, level: newData.level });

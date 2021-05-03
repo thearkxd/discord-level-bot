@@ -1,5 +1,4 @@
 const db = require("../schemas/levelCard");
-const Canvas = require("canvas");
 
 module.exports = {
   conf: {

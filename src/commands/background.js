@@ -32,7 +32,7 @@ module.exports = {
       userID: message.author.id
     }, { $set: { background } }, { upsert: true });
 
-    await embed.setTitle("Level kartı arkaplanı değiştirildi!").setDescription(`Level kartının arkaplanı ayarlandı!`).setImage(background);
+    await embed.setTitle("Level kartı arkaplanı değiştirildi!").setDescription("Level kartının arkaplanı ayarlandı!").setImage(background);
     await message.channel.send(embed);
   }
 };

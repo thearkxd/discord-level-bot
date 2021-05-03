@@ -1,7 +1,3 @@
-const Discord = require("discord.js");
-const conf = require("../configs/config.json");
-const settings = require("../configs/settings.json");
-
 module.exports = {
   conf: {
     aliases: [],
@@ -17,7 +13,7 @@ module.exports = {
 
   run: async (client, message, args) => {
     if (!args[0]) return;
-    let code = args.join(" ");
+    const code = args.join(" ");
 
     try {
       var result = clean(await eval(code));

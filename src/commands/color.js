@@ -37,7 +37,7 @@ module.exports = {
     ctx.fill();
     ctx.fillRect(0, 0, 150, 150);
 
-    await embed.setTitle("Level kartı rengi değiştirildi!").setDescription(`Level kartının rengi **#${args[0]}** olarak ayarlandı!`).setImage(`attachment://color.png`).setColor(`#${args[0]}`);
+    await embed.setTitle("Level kartı rengi değiştirildi!").setDescription(`Level kartının rengi **#${args[0]}** olarak ayarlandı!`).setImage("attachment://color.png").setColor(`#${args[0]}`);
     await message.channel.send({ embed, files: [{ attachment: canvas.toBuffer(), name: "color.png" }] });
   }
 };
