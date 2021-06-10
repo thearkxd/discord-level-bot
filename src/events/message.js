@@ -16,7 +16,9 @@ module.exports = async (message) => {
     const level = data ? data.level : 1;
     const nextLevelXP = (!level ? 1 : level + 1) * conf.nextLevelXP;
     const xpPerLevel = conf.xpToAdd.toString().includes("-") ? conf.xpToAdd.split("-") : conf.xpToAdd;
-    const xpToAdd = Array.isArray(xpPerLevel) ? Math.floor(Math.random() * (xpPerLevel[1] - xpPerLevel[0] + 1)) + xpPerLevel[0] : xpPerLevel;
+    const min = parseInt(xpPerLevel[0]);
+    const max = parseInt(xpPerLevel[1]);
+    const xpToAdd = Array.isArray(xpPerLevel) ? min + Math.floor((max - min) * Math.random()) : xpPerLevel;
     if (!data || data && data.currentXP < nextLevelXP) return db.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $inc: { totalXP: xpToAdd, currentXP: xpToAdd } }, { upsert: true });
 
     const newData = await db.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { $inc: { level: 1 }, $set: { currentXP: 0} }, { upsert: true, new: true });

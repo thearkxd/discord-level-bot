@@ -2,7 +2,7 @@ const db = require("../schemas/level");
 const Canvas = require("canvas");
 const { registerFont } = require("canvas");
 const path = require("path");
-registerFont(path.resolve("../fonts/arial.ttf"), { family: "Arial" });
+registerFont(path.resolve("./src/fonts/arial.ttf"), { family: "Arial" });
 const conf = require("../configs/config.json");
 const levelCard = require("../schemas/levelCard");
 const { getColor } = require("colorthief");
