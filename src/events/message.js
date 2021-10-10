@@ -30,7 +30,7 @@ module.exports = async (message) => {
         const oldRanks = await ranks.find({ guildID: message.guild.id, level: { $lt: newData.level } });
         oldRanks.filter((x) => x.roles.some((r) => message.member.roles.cache.has(r))).forEach((x) => message.member.roles.remove(x.roles));
       }
-      if (channel) channel.send(`${message.member.toString()} üyesi level atladı ve \`${rank.roles.map((x) => message.guild.roles.cache.get(x).name).join(", ")}\` rol(leri) kazandı!`);
+      if (channel) channel.send(`${message.member.toString()} üyesi level atladı ve \`${rank.roles.map((x) => x.toString()).join(", ")}\` rol(leri) kazandı!`, { allowedMentions: { roles: [] } });
     }
     if (channel) channel.send(`${message.member.toString()} üyesi level atladı! \`${newData.level - 1} => ${newData.level}\``);
     message.channel.send(`${message.member.toString()} tebrikler, level atladın! \`${newData.level - 1} => ${newData.level}\``).then((x) => x.delete({ timeout: 10000 }));
